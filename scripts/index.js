@@ -3,9 +3,6 @@ const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
 
-let teams = ['lakers','celtics', 'gsw', 'bulls', 'heat',
-    'nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
-];
 
 // ----- Selectors -----
 
@@ -15,34 +12,20 @@ let teams = ['lakers','celtics', 'gsw', 'bulls', 'heat',
 
 // ----- Start Game Functions -----
 
-let cards = null;
 
 startGame();
 function startGame(){
-    cards = createCardsFromTeams(teams);
-    shuffleCards(cards);
-    console.log(cards);
-    initializeCards(cards);
+    initializeCards(game.createCardsFromTeams());
+    // console.log(cards);
 }
 
-function shuffleCards(cards){
-    let currentIndex = cards.length;
-    let randomIndex = 0;
 
-    while(currentIndex !== 0){
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        
-        // invertendo/trocando valores de duas variaveis
-        [cards[randomIndex], cards[currentIndex]] = [cards[currentIndex], cards[randomIndex]];
-    }
-}
 
 function initializeCards(cards){
     let gameBoard = document.querySelector("#gameBoard");
     console.log(gameBoard);
 
-    cards.forEach(card => {
+    game.cards.forEach(card => {
         let cardElement = document.createElement("div");
         cardElement.id = card.id;
         cardElement.classList.add(CARD);
@@ -59,36 +42,6 @@ function initializeCards(cards){
         createCardContent(card, cardElement);
 
     })
-}
-
-
-// ----- Create Cards Functions -----
-
-createCardsFromTeams(teams)
-function createCardsFromTeams(teams){
-
-    let cards = [];
-
-    teams.forEach((team)=>{
-        cards.push((createPairFromTeam(team)));
-    })
-    return (cards.flatMap(pair => pair)); // "desmembra" um item do array e o retorna no array.
-}
-
-function createPairFromTeam(team){
-    return [{
-        id: createIdWithTeam(team),
-        icon: team,
-        flipped:false,
-    },{
-        id: createIdWithTeam(team),
-        icon: team,
-        flipped:false,
-    }]
-}
-
-function createIdWithTeam(team){
-    return team + parseInt(Math.random() * 1000) ;
 }
 
 function createCardContent(card, cardElement){

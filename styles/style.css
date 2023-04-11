@@ -41,6 +41,11 @@ body{
     text-align: center;
 }
 
+.card_back:hover{
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
 .flip{
     transform: rotateY(180deg);
 }
