@@ -3,7 +3,7 @@ const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
 
-let teams = ['lakers','celtics', 'gsw', 'bulls', 'hornets',
+let teams = ['lakers','celtics', 'gsw', 'bulls', 'heat',
     'nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
 ];
 
