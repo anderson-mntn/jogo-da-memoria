@@ -98,7 +98,7 @@ body{
     width:fit-content;
     padding: 3rem 1rem 0;
     height: 100%;
-    background: linear-gradient(to bottom, red, yellow);
+    background: linear-gradient(to bottom, rgb(53, 154, 204), rgb(45, 23, 97));
     display: grid;
     grid-template-columns: min-content min-content min-content min-content min-content min-content;
     grid-template-rows: min-content min-content min-content min-content min-content min-content ;
