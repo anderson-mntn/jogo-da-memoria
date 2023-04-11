@@ -45,7 +45,7 @@ function initializeCards(cards){
     cards.forEach(card => {
         let cardElement = document.createElement("div");
         cardElement.id = card.id;
-        cardElement.classList.add(CARD, "brdr_radius");
+        cardElement.classList.add(CARD);
 
         // Verificando se os icons das cards sao iguais
         cardElement.dataset.icon = card.icon;
@@ -103,6 +103,7 @@ function createCardFace(face, card, element){
     if(face === FRONT){
         let iconElement = document.createElement('img');
         iconElement.classList.add(ICON);
+        
         iconElement.src = "./assets/images/" + card.icon + ".png";
         cardElementFace.appendChild(iconElement);
     } else {
