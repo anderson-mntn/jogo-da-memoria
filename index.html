@@ -9,18 +9,25 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;800&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <div id="" class="card brdr_radius" data-icon="lakers">
-        <div class="card_front brdr_radius">
+    <!-- <div id="" class="card brdr_radius" data-icon="lakers">
+        <div class="card_front brdr_radius flex-center-items">
             <img src="/assets/images/lakers-logo.png" alt="" class="brdr_radius">
         </div>
-        <div class="card_back brdr_radius">
+        <div class="card_back brdr_radius flex-center-items">
             &lt/&gt
         </div>
         
+    </div> -->
+    <div id="gameOver" class="flex-center-items">
+        <p>
+            Parabéns, você completou o jogo!
+        </p>
+        <button class="brdr_radius" id="restartGame" onclick="restart_game()">Play Again!</button>
     </div>
+
 </body>
 </html>
