@@ -4,9 +4,12 @@
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
 }
+body{
+    height: 100vh;
+}
 .card {
-  width: 180px;
-  height: 180px;
+  width: 135px;
+  height: 135px;
   position: relative;
 
   /* preservando aspecto 3d da carta */
@@ -22,10 +25,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    box-shadow: 10px 10px 10px rgb(0, 0,0, 0.5);
+    box-shadow: 5px 5px 10px rgb(0, 0,0, 0.5);
 }
 .card_back{
-    
     font-family: 'Rubik', sans-serif;
     font-size: 38px;
     font-weight: 800;
@@ -61,19 +63,19 @@
     color: white;
     font-size: 1.5em;
     flex-direction: column; 
-    /* display: none; */
+    display: none;
     text-align: center;
     padding: 1rem;
 }
 #gameOver p{
-    font-size: 1rem;
-    animation: increaseText 3s infinite;
+    font-size: 1.75rem;
+    animation: increaseText 2s infinite;
 }
 
 #restartGame{
     padding: .25em 1rem;
     height: 2rem;
-    font-size: .8em;
+    font-size: 1.25rem;
     border: none;
     background-color: #41a377;
     position: inherit;
@@ -87,7 +89,20 @@
 }
 
 @keyframes increaseText {
-    0% {  font-size: 1.5rem; }
-    50% {  font-size: 1.8rem; }
-    100% {  font-size: 1.5rem ;}
+    0% {  font-size: 1.75rem; }
+    50% {  font-size: 1.9rem; }
+    100% {  font-size: 1.75rem ;}
+}
+
+#gameBoard{
+    width:fit-content;
+    padding: 3rem 1rem 0;
+    height: 100%;
+    background: linear-gradient(to bottom, red, yellow);
+    display: grid;
+    grid-template-columns: min-content min-content min-content min-content min-content min-content;
+    grid-template-rows: min-content min-content min-content min-content min-content min-content ;
+    gap: 1.5rem;
+    place-content: center;
+    
 }
