@@ -13,6 +13,8 @@ let game = {
     setCard: function(id){
         let card = this.cards.filter(card => card.id === id)[0];
 
+        console.log(card);
+
         if(card.flipped || this.lockMode){
             return false;
         }
@@ -23,20 +25,20 @@ let game = {
             return true;
         } else {
             this.secondCard = card;
+            this.secondCard.flipped = true;
             this.lockMode = true;
-            this.firstCard.flipped = false;
             return true;
         }
 
 
         
     },
-    fLockMode: function(){
-        this.lockMode = false;
-    },
-
+    
     checkCardsMatch: function(){
-        return this.firstCard.icon == this.secondCard.icon
+        if(!this.firstCard || !this.secondCard){
+            return false;
+        }
+        return this.firstCard.icon == this.secondCard.icon;
     },
 
     clearCards: function(){
@@ -44,6 +46,11 @@ let game = {
         this.secondCard = null;
         this.lockMode = false;
 
+    },
+    unflipCards(){
+        this.firstCard.flipped = false;
+        this.secondCard.flipped = false;
+        this.clearCards();
     },
 
     cards: null,
