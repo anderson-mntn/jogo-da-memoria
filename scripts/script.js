@@ -80,9 +80,7 @@ function flipCard(card){
             this.classList.add("flip");
     
             if (game.checkCardsMatch()){
-                setTimeout(()=>{
-                    game.clearCards();
-                }, 500)
+                game.clearCards();
             } else {
                 
                 setTimeout(()=>{
