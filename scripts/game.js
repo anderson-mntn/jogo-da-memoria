@@ -19,11 +19,12 @@ let game = {
 
         if(!this.firstCard){
             this.firstCard = card;
-            this.firstCard.filter = true;
+            this.firstCard.flipped = true;
             return true;
         } else {
             this.secondCard = card;
             this.lockMode = true;
+            this.firstCard.flipped = false;
             return true;
         }
 
@@ -42,6 +43,7 @@ let game = {
         this.firstCard = null;
         this.secondCard = null;
         this.lockMode = false;
+
     },
 
     cards: null,
