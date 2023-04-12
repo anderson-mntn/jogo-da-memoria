@@ -3,7 +3,6 @@ const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
 
-
 // ----- Selectors -----
 
 
@@ -51,7 +50,9 @@ function createCardContent(card, cardElement){
 }
 
 // ----- Colocando imagem do time ou </> no card -----
+
 function createCardFace(face, card, element){
+
     let cardElementFace = document.createElement('div');
     cardElementFace.classList.add(face)
     if(face === FRONT){
@@ -69,5 +70,37 @@ function createCardFace(face, card, element){
 
 // ----- Flip Card Function ----- 
 function flipCard(card){
-    this.classList.add("flip");
-}
+
+    let trg = card.target;
+
+    if(trg.classList == BACK || trg.parentElement.classList == BACK){
+
+        if(game.setCard(this.id)){
+    
+            this.classList.add("flip");
+    
+            if (game.checkCardsMatch()){
+                game.clearCards();
+            } else {
+    
+                setTimeout(()=>{
+                    let firstCardView = document.getElementById(game.firstCard.id);
+                    let secondCardView = document.getElementById(game.secondCard.id);
+                    
+                    firstCardView.classList.remove('flip');
+                    secondCardView.classList.remove('flip');
+                                    
+                    game.clearCards();
+    
+                }, 1000);
+            }
+            
+        }
+    } else {
+        console.log(trg);
+    }
+    
+
+}     
+
+
