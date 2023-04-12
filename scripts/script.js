@@ -4,6 +4,7 @@ const CARD = "card"
 const ICON = "icon"
 
 // ----- Selectors -----
+var gameOverScreen = document.querySelector("#gameOver");
 
 
 // ----- Functions -----
@@ -76,6 +77,9 @@ function flipCard(card){
        if(game.secondCard){
             if (game.checkCardsMatch()){
               game.clearCards();
+              if(game.checkGameOver()){
+                gameOverScreen.style.display = "flex";
+              }
             } else {
                setTimeout(()=>{
                let firstCardView = document.getElementById(game.firstCard.id);
@@ -89,6 +93,12 @@ function flipCard(card){
         }
     }
    
-}     
+}    
+
+function restartGame(){
+    gameBoard.innerHTML = "";
+    gameOverScreen.style.display = "none";
+    startGame();
+}
 
 

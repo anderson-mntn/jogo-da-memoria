@@ -1,10 +1,9 @@
 let game = {
     teams: ['lakers','celtics', 'gsw', 'bulls', 'heat','nets',
-        'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
+    'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
     ],
-   
-
-    // ----- Checking Game Actions -----
+  
+    // ----- Checking Game Moves -----
 
     lockMode: false,
     firstCard: null,
@@ -52,6 +51,10 @@ let game = {
         this.secondCard.flipped = false;
         this.clearCards();
     },
+    checkGameOver(){
+        //Se o length do array retornado for igual a 0 o jogo acabou
+        return this.cards.filter(card=>!card.flipped).length == 0;
+    },
 
     cards: null,
 
@@ -64,7 +67,7 @@ let game = {
             this.cards.push((this.createPairFromTeam(team)));
         })
         this.cards = this.cards.flatMap(pair => pair); // "desmembra" um item do array e o retorna no array.
-        console.log(this.cards);
+       console.log(this.cards);
         this.shuffleCards();
         return this.cards;
     },
