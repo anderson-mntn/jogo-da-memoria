@@ -19,6 +19,7 @@ let game = {
 
         if(!this.firstCard){
             this.firstCard = card;
+            this.firstCard.filter = true;
             return true;
         } else {
             this.secondCard = card;
