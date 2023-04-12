@@ -1,6 +1,6 @@
 let game = {
-    teams: ['lakers','celtics', 'gsw', 'bulls', 'heat',
-        'nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
+    teams: ['lakers','celtics', 'gsw', 'bulls', 'heat','nets',
+        'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
     ],
     cards: null,
 
@@ -13,6 +13,7 @@ let game = {
             this.cards.push((this.createPairFromTeam(team)));
         })
         this.cards = this.cards.flatMap(pair => pair); // "desmembra" um item do array e o retorna no array.
+        console.log(this.cards);
         this.shuffleCards();
         return this.cards;
     },

@@ -14,6 +14,7 @@ const ICON = "icon"
 
 
 startGame();
+
 function startGame(){
     initializeCards(game.createCardsFromTeams());
     // console.log(cards);
@@ -23,7 +24,7 @@ function startGame(){
 
 function initializeCards(cards){
     let gameBoard = document.querySelector("#gameBoard");
-    console.log(gameBoard);
+    // console.log(gameBoard);
 
     game.cards.forEach(card => {
         let cardElement = document.createElement("div");
@@ -60,7 +61,7 @@ function createCardFace(face, card, element){
         iconElement.src = "./assets/images/" + card.icon + ".png";
         cardElementFace.appendChild(iconElement);
     } else {
-        cardElementFace.innerHTML = "&lt/&gt";
+        cardElementFace.innerHTML = `<img src="./assets/images/nba_logo.png" alt="nba logo">`;
     }
 
     element.appendChild(cardElementFace);
