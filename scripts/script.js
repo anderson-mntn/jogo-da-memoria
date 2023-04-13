@@ -49,7 +49,7 @@ function initializeCards(cards){
 
 function createCardContent(card, cardElement){
     createCardFace(FRONT, card, cardElement);
-    // createCardFace(BACK, card, cardElement);
+    createCardFace(BACK, card, cardElement);
 }
 
 // ----- Colocando imagem do time ou </> no card -----
@@ -137,15 +137,7 @@ function hardMode() {
     gameBoard.style.gridTemplateColumns = " 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
     gameBoard.style.gridTemplateRows = " 100px  100px 100px 100px 100px "
     gameBoard.style.gap = "12px"
-
-    game.card
      
 };
 
-// function flipAll(){
-//     let c = document.getElementsByClassName('card')
-//     c.classList = ("flip")
-// }
-
-// flipAll()
 

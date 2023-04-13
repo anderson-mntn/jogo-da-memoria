@@ -26,7 +26,7 @@ h1{
 
 .card_front{
     background-color: #41a377;
-    /* transform: rotateY(180deg); */
+    transform: rotateY(180deg);
 }
 .card_front, .card_back{
     backface-visibility: hidden;
@@ -66,10 +66,6 @@ h1{
 
 .card_back img{
     height: 70%;
-<<<<<<< HEAD
- 
-=======
->>>>>>> 7e6b78be25bced083fecd862daa58972db01b8bf
 }
 
 
