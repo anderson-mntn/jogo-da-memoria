@@ -8,10 +8,6 @@ let game = {
     firstCard: null,
     secondCard: null,
 
-    setEasyMode(){
-
-    },
-
     setCard: function(id){
         let card = this.cards.filter(card => card.id === id)[0];
 
@@ -51,12 +47,13 @@ let game = {
         this.lockMode = false;
 
     },
-    unflipCards(){
+    unflipCards:function(){
         this.firstCard.flipped = false;
         this.secondCard.flipped = false;
         this.clearCards();
     },
-    checkGameOver(){
+    
+    checkGameOver: function(){
         //Se o length do array retornado for igual a 0 o jogo acabou
         return this.cards.filter(card=>!card.flipped).length == 0;
     },
@@ -73,6 +70,9 @@ let game = {
         })
         this.cards = this.cards.flatMap(pair => pair); // "desmembra" um item do array e o retorna no array.
        console.log(this.cards);
+
+       
+        
         this.shuffleCards();
         return this.cards;
     },
@@ -81,11 +81,11 @@ let game = {
         return [{
             id: this.createIdWithTeam(team),
             icon: team,
-            flipped:false,
+            flipped: false,
         },{
             id: this.createIdWithTeam(team),
             icon: team,
-            flipped:false,
+            flipped: false,
         }]
     },
     createIdWithTeam: function(team){

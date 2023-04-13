@@ -15,7 +15,7 @@ const cardInterface = document.getElementsByClassName('card');
 
 // ----- Functions -----
 
-normalMode();
+hardMode();
 
 function startGame(){
     initializeCards(game.createCardsFromTeams());
@@ -49,7 +49,7 @@ function initializeCards(cards){
 
 function createCardContent(card, cardElement){
     createCardFace(FRONT, card, cardElement);
-    createCardFace(BACK, card, cardElement);
+    // createCardFace(BACK, card, cardElement);
 }
 
 // ----- Colocando imagem do time ou </> no card -----
@@ -127,7 +127,7 @@ function normalMode(){
     gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
 }
 
-hardModeBtn.addEventListener("click", ()=> {
+function hardMode() {
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs','mavs', 'hawks', 'knicks',
      'spurs', 'wolves', 'clippers', 'suns', 'pelicans', 'kings', 'bucks', '76ers', 'nuggets', 'grizzlies',
      ,'raptors', 'okc', 'jazz', 'trail-blazers', 'hornets', 'wizards', 'rockets', 'pacers', 'pistons', 'magic' 
@@ -137,11 +137,15 @@ hardModeBtn.addEventListener("click", ()=> {
     gameBoard.style.gridTemplateColumns = " 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
     gameBoard.style.gridTemplateRows = " 100px  100px 100px 100px 100px "
     gameBoard.style.gap = "12px"
-    
-    
-    
-    
-});
 
+    game.card
+     
+};
 
+// function flipAll(){
+//     let c = document.getElementsByClassName('card')
+//     c.classList = ("flip")
+// }
+
+// flipAll()
 
