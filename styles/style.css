@@ -26,7 +26,7 @@ h1{
 
 .card_front{
     background-color: #41a377;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); 
 }
 .card_front, .card_back{
     backface-visibility: hidden;

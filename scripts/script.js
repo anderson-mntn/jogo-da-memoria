@@ -15,7 +15,7 @@ const cardInterface = document.getElementsByClassName('card');
 
 // ----- Functions -----
 
-hardMode();
+normalMode();
 
 function startGame(){
     initializeCards(game.createCardsFromTeams());
@@ -126,6 +126,7 @@ function normalMode(){
     gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px 120px 120px 120px 120px"
     gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
 }
+hardModeBtn.addEventListener("click", hardMode);
 
 function hardMode() {
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs','mavs', 'hawks', 'knicks',
