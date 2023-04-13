@@ -13,7 +13,14 @@
 
 </head>
 <body class="flex-center-items">
-    <h1>NBA Memory Game</h1>
+    <div id="sep" >
+        <div id="movesDiv">Moves:</div>
+        <h1>NBA Memory Game</h1>
+        <div id="btns" class="flex-center-items">
+            <button>Restart Game</button>
+            <button>Change Difficulty</button>
+        </div> 
+    </div>
     <div id="gameBoard">
         <!-- <div id="" class="card brdr_radius" data-icon="lakers">
             <div class="card_front brdr_radius flex-center-items">
@@ -33,6 +40,21 @@
         </div>  -->
         
     </div>
+
+    <div id="initialScreen" class="flex-center-items"> 
+        <div id="initScreenText">
+            <p style="margin-bottom: 14px;">
+                Wellcome to NBA Memory Game! <br>
+                Try to finish using less moves as possible! <br>
+            </p>
+
+            Choose Difficulty: <br>
+            <button id="easyModeBtn" onclick="hide()">Easy</button> 
+            <button id="normalModeBtn" onclick="hide()">Medium</button>
+            <button id="hardModeBtn" onclick="hide()">Hard</button>
+        </div>
+    </div>
+
     <div id="gameOver" class="flex-center-items">
         <p>
             Parabéns, você completou o jogo!

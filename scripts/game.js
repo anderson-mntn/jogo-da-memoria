@@ -1,13 +1,16 @@
 let game = {
     teams: ['lakers','celtics', 'gsw', 'bulls', 'heat','nets',
-    'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'
-    ],
+    'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'],
   
     // ----- Checking Game Moves -----
 
     lockMode: false,
     firstCard: null,
     secondCard: null,
+
+    setEasyMode(){
+
+    },
 
     setCard: function(id){
         let card = this.cards.filter(card => card.id === id)[0];
@@ -34,6 +37,8 @@ let game = {
     },
     
     checkCardsMatch: function(){
+        moveCounter++;
+        console.log(moveCounter);
         if(!this.firstCard || !this.secondCard){
             return false;
         }

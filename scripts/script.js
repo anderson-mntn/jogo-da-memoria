@@ -2,18 +2,20 @@ const FRONT = "card_front";
 const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
+let moveCounter = 0;
 
 // ----- Selectors -----
 var gameOverScreen = document.querySelector("#gameOver");
+const initialScreen = document.querySelector("#initialScreen");
+const easyModeBtn = document.querySelector("#easyModeBtn");
+const normalModeBtn = document.querySelector("#normalModeBtn");
+const hardModeBtn = document.querySelector("#hardModeBtn");
 
+const cardInterface = document.getElementsByClassName('card');
 
 // ----- Functions -----
 
-
-// ----- Start Game Functions -----
-
-
-startGame();
+normalMode();
 
 function startGame(){
     initializeCards(game.createCardsFromTeams());
@@ -100,5 +102,46 @@ function restartGame(){
     gameOverScreen.style.display = "none";
     startGame();
 }
+
+function hide(){
+    initialScreen.style.display = "none";
+}
+
+easyModeBtn.addEventListener("click", ()=> {
+    game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
+    gameBoard.innerHTML = "";
+    startGame();
+    gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px"
+    gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
+
+});
+
+normalModeBtn.addEventListener("click", normalMode);
+
+function normalMode(){
+    game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves',
+    'clippers', 'suns', 'pelicans', 'kings',]
+    gameBoard.innerHTML = "";
+    startGame();
+    gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px 120px 120px 120px 120px"
+    gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
+}
+
+hardModeBtn.addEventListener("click", ()=> {
+    game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs','mavs', 'hawks', 'knicks',
+     'spurs', 'wolves', 'clippers', 'suns', 'pelicans', 'kings', 'bucks', '76ers', 'nuggets', 'grizzlies',
+     ,'raptors', 'okc', 'jazz', 'trail-blazers', 'hornets', 'wizards', 'rockets', 'pacers', 'pistons', 'magic' 
+    ];
+    gameBoard.innerHTML = "";
+    startGame();
+    gameBoard.style.gridTemplateColumns = " 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
+    gameBoard.style.gridTemplateRows = " 100px  100px 100px 100px 100px "
+    gameBoard.style.gap = "12px"
+    
+    
+    
+    
+});
+
 
 
