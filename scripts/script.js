@@ -83,6 +83,9 @@ function flipCard(card){
     if(game.setCard(this.id)){
        this.classList.add("flip");
        if(game.secondCard){
+            moveCounter++;
+            movesCounter.innerText = moveCounter;
+            finalMovesCounter.innerHTML = moveCounter;
             if (game.checkCardsMatch()){
               game.clearCards();
               if(game.checkGameOver()){
@@ -97,9 +100,7 @@ function flipCard(card){
                firstCardView.classList.remove('flip');
                secondCardView.classList.remove('flip');
                
-               moveCounter++;
-               movesCounter.innerText = moveCounter;
-               finalMovesCounter.innerHTML = moveCounter;
+               
                game.unflipCards();
                }, 1000);
             }
@@ -118,15 +119,23 @@ function restartGame(){
 
     console.log(teamsLength)
 
-    switch(teamsLength){
-        case (8) : easyMode();
-        break;
-        case (16) : normalMode();
-        break;
-        case (30) : hardMode();
-        break;
-    }
+    // switch(teamsLength){
+    //     case (8) : easyMode();
+    //     break;
+    //     case (16) : normalMode();
+    //     break;
+    //     case (30) : hardMode();
+    //     break;
+    // }
 
+    if(teamsLength <= 8){
+        easyMode();
+    }
+    if (teamsLength > 8 && teamsLength <= 16){
+        normalMode();
+    } else {
+        hardMode();
+    }
 }
 
 function hide(){
@@ -137,6 +146,7 @@ function changeDifficulty(){
     initialScreen.style.display = "flex";
     moveCounter = 0;
     game.firstCard = null;
+    
 }
 
 function easyMode(){
