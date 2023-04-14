@@ -112,8 +112,7 @@ function flipCard(card){
 }    
 
 function restartGame(){
-
-   
+    setTimeout(()=>{
         gameOverScreen.style.display = "none";
         moveCounter = 0;
         game.firstCard = null;
@@ -128,9 +127,7 @@ function restartGame(){
             break;
             default: console.log("diff. change");
         }
-
-   
-    
+    }, 1000)
 
 }
 
@@ -152,7 +149,6 @@ function easyMode(){
     startGame();
     gameBoard.style.gridTemplateColumns = "120px 120px 120px 120px"
     gameBoard.style.gridTemplateRows = "120px  120px 120px 120px"
-
 }
 
 function normalMode(){
@@ -177,8 +173,6 @@ function hardMode() {
     gameBoard.style.gridTemplateColumns = "100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
     gameBoard.style.gridTemplateRows = "100px  100px 100px 100px 100px"
     gameBoard.style.gap = "12px"
-   
-   
   
 };
 
