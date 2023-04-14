@@ -22,23 +22,7 @@
         <p id="movesp">Moves: <span class="movesCounter"></span></div>
     </div>
     <div id="gameBoard">
-        <!-- <div id="" class="card brdr_radius" data-icon="lakers">
-            <div class="card_front brdr_radius flex-center-items">
-                <img src="/assets/images/lakers.png" alt="" class="brdr_radius">
-            </div>
-            <div class="card_back brdr_radius flex-center-items">
-                &lt/&gt
-            </div>
-        </div> 
-        <div id="" class="card brdr_radius" data-icon="lakers">
-            <div class="card_front brdr_radius flex-center-items">
-                <img src="/assets/images/lakers.png" alt="" class="brdr_radius">
-            </div>
-            <div class="card_back brdr_radius flex-center-items">
-                &lt/&gt
-            </div>
-        </div>  -->
-        
+        <!-- Game Cards -->
     </div>
 
     <div id="initialScreen" class="flex-center-items"> 
@@ -50,7 +34,7 @@
 
             Choose Difficulty: <br>
             <button id="easyModeBtn" onclick="hide(), easyMode()">Easy</button> 
-            <button id="normalModeBtn" onclick="hide(), normalMode()">Medium</button>
+            <button id="normalModeBtn" onclick="hide(), normalMode()">Normal</button>
             <button id="hardModeBtn" onclick="hide(), hardMode()">Hard</button>
         </div>
     </div>
@@ -59,7 +43,7 @@
         <p>
             Congratulations, you finished the game with <span id="finalMovesCounter">kk</span> moves!
         </p>
-        <button class="brdr_radius" id="restartGame" onclick="startGame()">Play Again!</button>
+        <button class="brdr_radius" id="restartGame" onclick="restartGame(), hide()">Play Again!</button>
     </div>
 
     <script src="scripts/game.js"></script>

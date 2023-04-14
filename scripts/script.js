@@ -3,6 +3,8 @@ const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
 var moveCounter = 0;
+var dificulty;
+
 
 // ----- Selectors -----
 var gameOverScreen = document.querySelector("#gameOver");
@@ -24,7 +26,6 @@ function startGame(){
     // console.log(cards);
     moveCounter = 0;
     movesCounter.innerHTML = moveCounter;
-
         
 }
 
@@ -111,31 +112,22 @@ function flipCard(card){
 }    
 
 function restartGame(){
-    gameBoard.innerHTML = "";
+    
     gameOverScreen.style.display = "none";
-    let teamsLength = game.teams.length;
     moveCounter = 0;
     game.firstCard = null;
 
-    console.log(teamsLength)
-
-    // switch(teamsLength){
-    //     case (8) : easyMode();
-    //     break;
-    //     case (16) : normalMode();
-    //     break;
-    //     case (30) : hardMode();
-    //     break;
-    // }
-
-    if(teamsLength <= 8){
-        easyMode();
+    gameBoard.innerHTML = "";
+    switch(dificulty){
+        case "easy" : easyMode();
+        break;
+        case "normal" : normalMode();
+        break;
+        case "hard" : hardMode();
+        break;
+        default: console.log("df change");
     }
-    if (teamsLength > 8 && teamsLength <= 16){
-        normalMode();
-    } else {
-        hardMode();
-    }
+
 }
 
 function hide(){
@@ -152,9 +144,10 @@ function changeDifficulty(){
 function easyMode(){
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
     gameBoard.innerHTML = "";
+    dificulty = "easy"
     startGame();
-    gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px"
-    gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
+    gameBoard.style.gridTemplateColumns = "120px 120px 120px 120px"
+    gameBoard.style.gridTemplateRows = "120px  120px 120px 120px"
 
 }
 
@@ -162,9 +155,11 @@ function normalMode(){
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves',
     'clippers', 'suns', 'pelicans', 'kings',]
     gameBoard.innerHTML = "";
+    dificulty = "normal";
+    
     startGame();
-    gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px 120px 120px 120px 120px"
-    gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
+    gameBoard.style.gridTemplateColumns = "120px 120px 120px 120px 120px 120px 120px 120px"
+    gameBoard.style.gridTemplateRows = "120px  120px 120px 120px"
 }
 
 function hardMode() {
@@ -173,11 +168,14 @@ function hardMode() {
      ,'raptors', 'okc', 'jazz', 'trail-blazers', 'hornets', 'wizards', 'rockets', 'pacers', 'pistons', 'magic' 
     ];
     gameBoard.innerHTML = "";
+    dificulty = "hard";
     startGame();
-    gameBoard.style.gridTemplateColumns = " 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
-    gameBoard.style.gridTemplateRows = " 100px  100px 100px 100px 100px "
+    gameBoard.style.gridTemplateColumns = "100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px"
+    gameBoard.style.gridTemplateRows = "100px  100px 100px 100px 100px"
     gameBoard.style.gap = "12px"
-     
+   
+   
+  
 };
 
 

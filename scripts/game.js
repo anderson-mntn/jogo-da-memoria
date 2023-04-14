@@ -1,6 +1,5 @@
 let game = {
-    teams: ['lakers','celtics', 'gsw', 'bulls', 'heat','nets',
-    'cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves'],
+    teams: [],
   
     // ----- Checking Game Moves -----
 
