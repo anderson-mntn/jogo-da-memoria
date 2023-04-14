@@ -140,7 +140,7 @@ function changeDifficulty(){
 }
 
 function easyMode(){
-    game.teams = ['lakers','pistons', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
+    game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
     gameBoard.innerHTML = "";
     startGame();
     gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px"
