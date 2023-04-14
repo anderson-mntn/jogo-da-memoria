@@ -14,6 +14,7 @@ const normalModeBtn = document.querySelector("#normalModeBtn");
 const hardModeBtn = document.querySelector("#hardModeBtn");
 const movesCounter = document.querySelector(".movesCounter");
 const finalMovesCounter = document.querySelector("#finalMovesCounter");
+const restartBtn = document.querySelector("#restartBtn")
 
 const cardInterface = document.getElementsByClassName('card');
 
@@ -95,15 +96,19 @@ function flipCard(card){
             } else {
                 let firstCardView = document.getElementById(game.firstCard.id);
                 let secondCardView = document.getElementById(game.secondCard.id);
+                restartBtn.disabled = true;
                setTimeout(()=>{
 
                
                firstCardView.classList.remove('flip');
                secondCardView.classList.remove('flip');
+
                
-               
+
                game.unflipCards();
+               restartBtn.disabled = false;
                }, 1000);
+               
             }
             
         }
@@ -112,23 +117,21 @@ function flipCard(card){
 }    
 
 function restartGame(){
-    setTimeout(()=>{
-        gameOverScreen.style.display = "none";
-        moveCounter = 0;
-        game.firstCard = null;
+    gameOverScreen.style.display = "none";
+    moveCounter = 0;
+    game.firstCard = null;
+    gameBoard.innerHTML = "";
     
-        gameBoard.innerHTML = "";
-        switch(dificulty){
-            case "easy" : easyMode(), console.log(dificulty);
-            break;
-            case "normal" : normalMode(), console.log(dificulty);
-            break;
-            case "hard" : hardMode(), console.log(dificulty);
-            break;
-            default: console.log("diff. change");
-        }
-    }, 1000)
-
+    switch(dificulty){
+    case "easy" : easyMode(), console.log(dificulty);
+        break;
+        case "normal" : normalMode(), console.log(dificulty);
+        break;
+        case "hard" : hardMode(), console.log(dificulty);
+        break;
+        default: console.log("diff. change");
+    }
+    
 }
 
 function hide(){
