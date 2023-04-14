@@ -2,7 +2,7 @@ const FRONT = "card_front";
 const BACK = "card_back";
 const CARD = "card"
 const ICON = "icon"
-let moveCounter = 0;
+var moveCounter = 0;
 
 // ----- Selectors -----
 var gameOverScreen = document.querySelector("#gameOver");
@@ -10,6 +10,8 @@ const initialScreen = document.querySelector("#initialScreen");
 const easyModeBtn = document.querySelector("#easyModeBtn");
 const normalModeBtn = document.querySelector("#normalModeBtn");
 const hardModeBtn = document.querySelector("#hardModeBtn");
+const movesCounter = document.querySelector(".movesCounter");
+const finalMovesCounter = document.querySelector("#finalMovesCounter");
 
 const cardInterface = document.getElementsByClassName('card');
 
@@ -20,6 +22,10 @@ normalMode();
 function startGame(){
     initializeCards(game.createCardsFromTeams());
     // console.log(cards);
+    moveCounter = 0;
+    movesCounter.innerHTML = moveCounter;
+
+        
 }
 
 
@@ -86,12 +92,18 @@ function flipCard(card){
                setTimeout(()=>{
                let firstCardView = document.getElementById(game.firstCard.id);
                let secondCardView = document.getElementById(game.secondCard.id);
+
                
                firstCardView.classList.remove('flip');
                secondCardView.classList.remove('flip');
+               
+               moveCounter++;
+               movesCounter.innerText = moveCounter;
+               finalMovesCounter.innerHTML = moveCounter;
                game.unflipCards();
                }, 1000);
             }
+            
         }
     }
    
@@ -100,23 +112,41 @@ function flipCard(card){
 function restartGame(){
     gameBoard.innerHTML = "";
     gameOverScreen.style.display = "none";
-    startGame();
+    let teamsLength = game.teams.length;
+    moveCounter = 0;
+    game.firstCard = null;
+
+    console.log(teamsLength)
+
+    switch(teamsLength){
+        case (8) : easyMode();
+        break;
+        case (16) : normalMode();
+        break;
+        case (30) : hardMode();
+        break;
+    }
+
 }
 
 function hide(){
     initialScreen.style.display = "none";
 }
 
-easyModeBtn.addEventListener("click", ()=> {
-    game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
+function changeDifficulty(){
+    initialScreen.style.display = "flex";
+    moveCounter = 0;
+    game.firstCard = null;
+}
+
+function easyMode(){
+    game.teams = ['lakers','pistons', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs']
     gameBoard.innerHTML = "";
     startGame();
     gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px"
     gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
 
-});
-
-normalModeBtn.addEventListener("click", normalMode);
+}
 
 function normalMode(){
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs', 'mavs', 'hawks', 'knicks', 'spurs', 'wolves',
@@ -126,7 +156,6 @@ function normalMode(){
     gameBoard.style.gridTemplateColumns = " 120px 120px 120px 120px 120px 120px 120px 120px"
     gameBoard.style.gridTemplateRows = " 120px  120px 120px 120px"
 }
-hardModeBtn.addEventListener("click", hardMode);
 
 function hardMode() {
     game.teams = ['lakers','celtics', 'gsw', 'bulls', 'heat','nets','cavs','mavs', 'hawks', 'knicks',

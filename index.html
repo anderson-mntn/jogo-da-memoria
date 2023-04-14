@@ -16,10 +16,10 @@
     <div id="sep" >
         <h1>NBA Memory Game</h1>
         <div id="btns">
-            <button>Restart Game</button>
-            <button>Change Difficulty</button>
+            <button onclick="restartGame()">Restart Game</button>
+            <button onclick="changeDifficulty()">Change Difficulty</button>
         </div> 
-        <p id="movesp">Moves:</div>
+        <p id="movesp">Moves: <span class="movesCounter"></span></div>
     </div>
     <div id="gameBoard">
         <!-- <div id="" class="card brdr_radius" data-icon="lakers">
@@ -49,15 +49,15 @@
             </p>
 
             Choose Difficulty: <br>
-            <button id="easyModeBtn" onclick="hide()">Easy</button> 
-            <button id="normalModeBtn" onclick="hide()">Medium</button>
-            <button id="hardModeBtn" onclick="hide()">Hard</button>
+            <button id="easyModeBtn" onclick="hide(), easyMode()">Easy</button> 
+            <button id="normalModeBtn" onclick="hide(), normalMode()">Medium</button>
+            <button id="hardModeBtn" onclick="hide(), hardMode()">Hard</button>
         </div>
     </div>
 
     <div id="gameOver" class="flex-center-items">
         <p>
-            Parabéns, você completou o jogo!
+            Congratulations, you finished the game with <span id="finalMovesCounter">kk</span> moves!
         </p>
         <button class="brdr_radius" id="restartGame" onclick="restartGame()">Play Again!</button>
     </div>

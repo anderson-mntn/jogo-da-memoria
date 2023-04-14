@@ -33,12 +33,13 @@ let game = {
     },
     
     checkCardsMatch: function(){
-        moveCounter++;
+        
         console.log(moveCounter);
         if(!this.firstCard || !this.secondCard){
             return false;
+        } else {
+            return this.firstCard.icon == this.secondCard.icon;
         }
-        return this.firstCard.icon == this.secondCard.icon;
     },
 
     clearCards: function(){
