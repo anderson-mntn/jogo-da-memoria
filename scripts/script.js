@@ -93,9 +93,9 @@ function flipCard(card){
                 gameOverScreen.style.display = "flex";
               }
             } else {
+                let firstCardView = document.getElementById(game.firstCard.id);
+                let secondCardView = document.getElementById(game.secondCard.id);
                setTimeout(()=>{
-               let firstCardView = document.getElementById(game.firstCard.id);
-               let secondCardView = document.getElementById(game.secondCard.id);
 
                
                firstCardView.classList.remove('flip');
@@ -112,21 +112,25 @@ function flipCard(card){
 }    
 
 function restartGame(){
-    
-    gameOverScreen.style.display = "none";
-    moveCounter = 0;
-    game.firstCard = null;
 
-    gameBoard.innerHTML = "";
-    switch(dificulty){
-        case "easy" : easyMode();
-        break;
-        case "normal" : normalMode();
-        break;
-        case "hard" : hardMode();
-        break;
-        default: console.log("df change");
-    }
+   
+        gameOverScreen.style.display = "none";
+        moveCounter = 0;
+        game.firstCard = null;
+    
+        gameBoard.innerHTML = "";
+        switch(dificulty){
+            case "easy" : easyMode(), console.log(dificulty);
+            break;
+            case "normal" : normalMode(), console.log(dificulty);
+            break;
+            case "hard" : hardMode(), console.log(dificulty);
+            break;
+            default: console.log("diff. change");
+        }
+
+   
+    
 
 }
 
@@ -137,7 +141,7 @@ function hide(){
 function changeDifficulty(){
     initialScreen.style.display = "flex";
     moveCounter = 0;
-    game.firstCard = null;
+    game.unflipCards();
     
 }
 
